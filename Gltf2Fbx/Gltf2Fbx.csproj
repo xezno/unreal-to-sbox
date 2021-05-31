@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net5.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="AssimpNet" Version="5.0.0-beta1" />
+      <PackageReference Include="System.CodeDom" Version="6.0.0-preview.4.21253.7" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="VmdlTemplate.cs">
+        <AutoGen>True</AutoGen>
+        <DesignTime>True</DesignTime>
+        <DependentUpon>VmdlTemplate.tt</DependentUpon>
+      </Compile>
+      <Compile Update="VmdlTemplate.ctor.cs">
+        <DependentUpon>VmdlTemplate.tt</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="VmdlTemplate.tt">
+        <Generator>TextTemplatingFilePreprocessor</Generator>
+        <LastGenOutput>VmdlTemplate.cs</LastGenOutput>
+      </None>
+    </ItemGroup>
+
+</Project>
